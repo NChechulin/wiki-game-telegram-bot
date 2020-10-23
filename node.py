@@ -13,7 +13,7 @@ class Node:
         self.parent = parsing
         self.title = parsing.get_title(self.url)
 
-    def __set_children(self):
+    def set_children(self):
         urls = parsing.get_all_links(self.url)
 
         for url in urls:
