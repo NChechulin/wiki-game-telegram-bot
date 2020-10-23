@@ -11,6 +11,7 @@ class Node:
     def __init__(self, url: str, parent: Node):
         self.url = url
         self.parent = parsing
+        self.children = []
         self.title = parsing.get_title(self.url)
 
     def set_children(self):
