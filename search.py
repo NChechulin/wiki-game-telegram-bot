@@ -1,5 +1,18 @@
 from node import Node
-from queue import Queue
+
+
+def pretty_print_answer(end: Node):
+    titles = []
+
+    node = end
+
+    while not (node is None):
+        titles.append(node.title)
+        node = node.parent
+
+    titles.reverse()
+
+    return ' -> '.join(titles)
 
 
 def search(start_url: str) -> Node:
@@ -7,24 +20,30 @@ def search(start_url: str) -> Node:
 
     start_node = Node(start_url, None)
 
-    edge = Queue()
-    edge.put(start_node)
+    edge = set()
+    edge.add(start_node)
+
+    total = 0
 
     for _ in range(10):
-        new_edge = Queue()
+        new_edge = set()
 
-        while not edge.empty():
-            node: Node = edge.get()
+        while len(edge) > 0:
+            total += 1
+            node: Node = edge.pop()
             print(node.title)
             node.set_children()
 
             possible_answer = node.try_find_answer(TARGET_TITLE)
 
             if not (possible_answer is None):
-                return possible_answer
+                print(total)
+                return pretty_print_answer(possible_answer)
 
             for child in node.children:
-                new_edge.put(child)
+                new_edge.add(child)
 
         edge = new_edge
-    return None
+
+    print(total)
+    return 'Nothing found'
