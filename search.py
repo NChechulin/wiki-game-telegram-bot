@@ -22,6 +22,7 @@ def search(start_url: str) -> Node:
 
     edge = set()
     edge.add(start_node)
+    seen = set()
 
     total = 0
 
@@ -43,7 +44,9 @@ def search(start_url: str) -> Node:
             for child in node.children:
                 new_edge.add(child)
 
-        edge = new_edge
+            seen.add(node)
+
+        edge = (new_edge - seen)
 
     print(total)
     return 'Nothing found'
