@@ -8,7 +8,7 @@ class Node:
     parent: 'Node' = None
     children: List['Node'] = None
 
-    def __init__(self, url: str, parent: Node):
+    def __init__(self, url: str, parent: 'Node'):
         self.url = url
         self.parent = parsing
         self.children = []
@@ -20,7 +20,7 @@ class Node:
         for url in urls:
             self.children.append(Node(url, self))
 
-    def try_find_answer(self, target_answer: str) -> Node:
+    def try_find_answer(self, target_answer: str) -> 'Node':
         for node in self.children:
             if node.title == target_answer:
                 return Node
