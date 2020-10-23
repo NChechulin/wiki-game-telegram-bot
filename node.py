@@ -18,3 +18,9 @@ class Node:
 
         for url in urls:
             self.children.append(Node(url, self))
+
+    def try_find_answer(self, target_answer: str) -> Node:
+        for node in self.children:
+            if node.title == target_answer:
+                return Node
+        return None
