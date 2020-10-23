@@ -8,7 +8,7 @@ class Node:
     parent: 'Node' = None
     children: List['Node'] = None
 
-    def __init__(self, url: str, parent: Node):
+    def __init__(self, url: str, parent: 'Node'):
         self.url = url
         self.parent = parsing
         self.children = []
