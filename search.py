@@ -32,13 +32,11 @@ def search(start_url: str) -> Node:
         while len(edge) > 0:
             total += 1
             node: Node = edge.pop()
-            print(node.title)
             node.set_children()
 
             possible_answer = node.try_find_answer(TARGET_TITLE)
 
             if not (possible_answer is None):
-                print(total)
                 return pretty_print_answer(possible_answer)
 
             for child in node.children:
@@ -48,5 +46,4 @@ def search(start_url: str) -> Node:
 
         edge = (new_edge - seen)
 
-    print(total)
     return 'Nothing found'
