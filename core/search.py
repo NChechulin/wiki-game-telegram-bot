@@ -1,4 +1,4 @@
-from node import Node
+from .node import Node
 
 
 def pretty_print_answer(end: Node):

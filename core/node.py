@@ -1,5 +1,5 @@
 from typing import List
-import parsing
+from . import parsing
 
 
 class Node:
