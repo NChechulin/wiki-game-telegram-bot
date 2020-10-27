@@ -1,7 +1,15 @@
+"""
+Contains logic for operating with Nodes
+"""
+
+
 from .node import Node
 
 
-def pretty_print_answer(end: Node):
+def pretty_print_answer(end: Node) -> str:
+    """
+    Returns a pretty string, which represents a path from start node to end node
+    """
     titles = []
 
     node = end
@@ -15,7 +23,10 @@ def pretty_print_answer(end: Node):
     return ' -> '.join(titles)
 
 
-def search(start_url: str) -> Node:
+def search(start_url: str) -> str:
+    """
+    Searches for a path to end article. Returns pretty printed path, if a solution is found. Else returns Nothing found
+    """
     TARGET_TITLE = 'Adolf Hitler'
 
     start_node = Node(start_url, None)
@@ -47,3 +58,4 @@ def search(start_url: str) -> Node:
         edge = (new_edge - seen)
 
     return 'Nothing found'
+
