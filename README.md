@@ -10,6 +10,20 @@ Also sometimes the text of the link and the title of the article, to which it le
 
 ![Example](https://habrastorage.org/webt/vr/db/bv/vrdbbv4nz1xlkwfqrse7ll6gtje.png)
 
+## Project structure
+
+```
+.
+├── bot.py              - Main bot file
+├── config.py           - Configuration file
+├── core
+│   ├── node.py         - Node, which represents an article
+│   ├── parsing.py      - Functions for parsing wikipedia page
+│   └── search.py       - Logic for searching the correct path
+├── README.md           - This file
+├── requirements.txt    - Python requirements file
+```
+
 ## Setup and configuration
 
 1. Clone the repo: `git clone https://github.com/NChechulin/everything-leads-to-hitler.git`
