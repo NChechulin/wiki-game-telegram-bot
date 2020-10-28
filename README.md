@@ -1,0 +1,19 @@
+# Everything leads to Hitler
+
+## About
+
+This is a telegram bot which automates [Wiki Game](https://en.wikipedia.org/wiki/Wikipedia:Wiki_Game).
+You have to send it a link to an article on English Wikipedia and it'll try to find a "path" to Adolf Hitler article.
+
+Please, not that it may take several minutes and in some cases can not be done.
+Also sometimes the text of the link and the title of the article, to which it leads, don't match, so Ctrl+F will not always work out.
+
+![Example](https://habrastorage.org/webt/vr/db/bv/vrdbbv4nz1xlkwfqrse7ll6gtje.png)
+
+## Setup and configuration
+
+1. Clone the repo: `git clone https://github.com/NChechulin/everything-leads-to-hitler.git`
+2. Install requirements: `pip install -r requirements.txt`
+3. [Register a new bot](https://core.telegram.org/bots#3-how-do-i-create-a-bot)
+4. Insert a token of your bot in `config.py`
+5. Run `python3 bot.py` to start the bot. You may also change the messages, which bot sends.
