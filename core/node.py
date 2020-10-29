@@ -4,7 +4,7 @@ This module contains Node class, which represents one article.
 
 
 from typing import List
-from . import parsing
+from core import parsing
 
 
 class Node:

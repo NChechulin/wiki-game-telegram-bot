@@ -3,7 +3,7 @@ Contains logic for operating with Nodes
 """
 
 
-from .node import Node
+from core.node import Node
 
 
 def pretty_print_answer(end: Node) -> str:
@@ -58,4 +58,3 @@ def search(start_url: str) -> str:
         edge = (new_edge - seen)
 
     return 'Nothing found'
-
