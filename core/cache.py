@@ -15,6 +15,7 @@ class Cache:
     def add(self, path: List[str]):
         for i in range(len(path) - 1):
             self.cursor.execute(
-                f"INSERT INTO cache VALUES('{path[i]}', '{path[i + 1]}')"
+                f"INSERT INTO cache VALUES(?, ?)",
+                (path[i], path[i+1],)
             )
         self.conn.commit()
