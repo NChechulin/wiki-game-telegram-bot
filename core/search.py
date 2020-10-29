@@ -6,21 +6,26 @@ Contains logic for operating with Nodes
 from core.node import Node
 
 
+cache = {}
+
+
 def pretty_print_answer(end: Node) -> str:
     """
     Returns a pretty string, which represents a path from start node to end node
     """
-    titles = []
+    return ' -> '.join(get_node_chain(end))
 
+
+def get_node_chain(end: Node):
     node = end
+    titles = []
 
     while not (node is None):
         titles.append(node.title)
         node = node.parent
 
     titles.reverse()
-
-    return ' -> '.join(titles)
+    return titles
 
 
 def search(start_url: str) -> str:
