@@ -28,6 +28,13 @@ def get_node_chain(end: Node):
     return titles
 
 
+def add_to_cache(end: Node):
+    titles = get_node_chain(end)
+
+    for i in range(len(titles) - 1):
+        cache[titles[i]] = titles[i + 1:]
+
+
 def search(start_url: str) -> str:
     """
     Searches for a path to end article. Returns pretty printed path, if a solution is found. Else returns Nothing found
