@@ -9,11 +9,16 @@ from core.node import Node
 cache = {}
 
 
-def pretty_print_answer(end: Node) -> str:
+def pretty_print_answer(end: Node, is_final=True) -> str:
     """
     Returns a pretty string, which represents a path from start node to end node
     """
-    return ' -> '.join(get_node_chain(end))
+    chain = get_node_chain(end)
+
+    if not is_final:
+        chain += cache[end.title]
+
+    return ' -> '.join(chain)
 
 
 def get_node_chain(end: Node):
@@ -57,9 +62,13 @@ def search(start_url: str) -> str:
             node: Node = edge.pop()
             node.set_children()
 
+            if not (cache.get(node.title) is None):
+                return pretty_print_answer(node, is_final=False)
+
             possible_answer = node.try_find_answer(TARGET_TITLE)
 
             if not (possible_answer is None):
+                add_to_cache(possible_answer)
                 return pretty_print_answer(possible_answer)
 
             for child in node.children:
