@@ -28,3 +28,20 @@ class Cache:
 
         found, = self.cursor.fetchone()
         return bool(found)
+
+    def __get_next(self, current):
+        self.cursor.execute(
+            "SELECT next FROM cache WHERE current = ?",
+            (current,)
+        )
+        res = self.cursor.fetchone()
+        return res[0]
+
+    def get(self, title) -> List[str]:
+        ans = []
+        cur, nxt = title, self.__get_next(title)
+        while nxt != 'Adolf Hitler':
+            cur, nxt = nxt, self.__get_next(nxt)
+            ans.append(cur)
+        ans.append('Adolf Hitler')
+        return ans
