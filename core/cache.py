@@ -19,3 +19,12 @@ class Cache:
                 (path[i], path[i+1],)
             )
         self.conn.commit()
+
+    def in_cache(self, title) -> bool:
+        self.cursor.execute(
+            "SELECT EXISTS (SELECT 1 FROM cache WHERE current = ?)",
+            (title,)
+        )
+
+        found, = self.cursor.fetchone()
+        return bool(found)
