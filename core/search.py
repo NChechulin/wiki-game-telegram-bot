@@ -4,9 +4,9 @@ Contains logic for operating with Nodes
 
 
 from core.node import Node
+from core.cache import Cache
 
-
-cache = {}
+cache = Cache()
 
 
 def pretty_print_answer(end: Node, is_final=True) -> str:
@@ -16,7 +16,7 @@ def pretty_print_answer(end: Node, is_final=True) -> str:
     chain = get_node_chain(end)
 
     if not is_final:
-        chain += cache[end.title]
+        chain += cache.get(end.title)
 
     return ' -> '.join(chain)
 
@@ -31,13 +31,6 @@ def get_node_chain(end: Node):
 
     titles.reverse()
     return titles
-
-
-def add_to_cache(end: Node):
-    titles = get_node_chain(end)
-
-    for i in range(len(titles) - 1):
-        cache[titles[i]] = titles[i + 1:]
 
 
 def search(start_url: str) -> str:
@@ -62,13 +55,13 @@ def search(start_url: str) -> str:
             node: Node = edge.pop()
             node.set_children()
 
-            if not (cache.get(node.title) is None):
+            if cache.in_cache(node.title):
                 return pretty_print_answer(node, is_final=False)
 
             possible_answer = node.try_find_answer(TARGET_TITLE)
 
             if not (possible_answer is None):
-                add_to_cache(possible_answer)
+                cache.add(get_node_chain(possible_answer))
                 return pretty_print_answer(possible_answer)
 
             for child in node.children:
