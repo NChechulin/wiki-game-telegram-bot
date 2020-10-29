@@ -5,6 +5,7 @@ Contains logic for operating with Nodes
 
 from core.node import Node
 from core.cache import Cache
+from typing import List
 
 cache = Cache()
 
@@ -21,7 +22,10 @@ def pretty_print_answer(end: Node, is_final=True) -> str:
     return ' -> '.join(chain)
 
 
-def get_node_chain(end: Node):
+def get_node_chain(end: Node) -> List[str]:
+    """
+    Returns a list of titles, which represents the path
+    """ 
     node = end
     titles = []
 
