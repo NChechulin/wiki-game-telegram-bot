@@ -5,7 +5,7 @@
 This is a telegram bot which automates [Wiki Game](https://en.wikipedia.org/wiki/Wikipedia:Wiki_Game).
 You have to send it a link to an article on English Wikipedia and it'll try to find a "path" to Adolf Hitler article.
 
-Please, not that it may take several minutes and in some cases can not be done.
+Please, note that it may take several minutes and in some cases can not be done.
 Also sometimes the text of the link and the title of the article, to which it leads, don't match, so Ctrl+F will not always work out.
 
 ![Example](https://habrastorage.org/webt/vr/db/bv/vrdbbv4nz1xlkwfqrse7ll6gtje.png)
