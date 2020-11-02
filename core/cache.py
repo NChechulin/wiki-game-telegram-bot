@@ -12,6 +12,7 @@ class Cache:
     """
     Cache class for operations with DB
     """
+
     DB_FILE = 'cache.db'
     cursor = None
     conn = None
@@ -27,7 +28,10 @@ class Cache:
         for i in range(len(path) - 1):
             self.cursor.execute(
                 f"INSERT INTO cache VALUES(?, ?)",
-                (path[i], path[i+1],)
+                (
+                    path[i],
+                    path[i + 1],
+                ),
             )
         self.conn.commit()
 
@@ -36,21 +40,17 @@ class Cache:
         Checks if a record is in DB
         """
         self.cursor.execute(
-            "SELECT EXISTS (SELECT 1 FROM cache WHERE current = ?)",
-            (title,)
+            "SELECT EXISTS (SELECT 1 FROM cache WHERE current = ?)", (title,)
         )
 
-        found, = self.cursor.fetchone()
+        (found,) = self.cursor.fetchone()
         return bool(found)
 
     def __get_next(self, current):
         """
         Returns next step of path from DB
         """
-        self.cursor.execute(
-            "SELECT next FROM cache WHERE current = ?",
-            (current,)
-        )
+        self.cursor.execute("SELECT next FROM cache WHERE current = ?", (current,))
         res = self.cursor.fetchone()
         return res[0]
 

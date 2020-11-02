@@ -25,7 +25,7 @@ def pretty_print_answer(end: Node, is_final=True) -> str:
 def get_node_chain(end: Node) -> List[str]:
     """
     Returns a list of titles, which represents the path
-    """ 
+    """
     node = end
     titles = []
 
@@ -73,6 +73,6 @@ def search(start_url: str) -> str:
 
             seen.add(node)
 
-        edge = (new_edge - seen)
+        edge = new_edge - seen
 
     return 'Nothing found'

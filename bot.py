@@ -17,6 +17,7 @@ async def welcome_handler(message: types.Message):
     '''Sends welcome message on /start command'''
     await message.reply(config.WELCOME_MESSAGE)
 
+
 @bot_dispatcher.message_handler()
 async def search_handler(message: types.Message):
     """
@@ -34,4 +35,3 @@ async def search_handler(message: types.Message):
 
 if __name__ == "__main__":
     executor.start_polling(bot_dispatcher)
-
