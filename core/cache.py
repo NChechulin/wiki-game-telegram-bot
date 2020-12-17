@@ -17,11 +17,11 @@ class Cache:
     cursor = None
     conn = None
 
-    def __init__(self):
+    def __init__(self: "Cache") -> None:
         self.conn = sqlite3.connect(self.DB_FILE)
         self.cursor = self.conn.cursor()
 
-    def add(self, path: List[str]):
+    def add(self: "Cache", path: List[str]) -> None:
         """
         Adds a bunch of (current, next) pairs in DB
         """
@@ -35,7 +35,7 @@ class Cache:
             )
         self.conn.commit()
 
-    def in_cache(self, title) -> bool:
+    def in_cache(self: "Cache", title: str) -> bool:
         """
         Checks if a record is in DB
         """
@@ -46,7 +46,7 @@ class Cache:
         (found,) = self.cursor.fetchone()
         return bool(found)
 
-    def __get_next(self, current):
+    def __get_next(self: "Cache", current: str) -> str:
         """
         Returns next step of path from DB
         """
@@ -54,7 +54,7 @@ class Cache:
         res = self.cursor.fetchone()
         return res[0]
 
-    def get(self, title) -> List[str]:
+    def get(self: "Cache", title: str) -> List[str]:
         """
         Returns full cached path as list of titles
         """
