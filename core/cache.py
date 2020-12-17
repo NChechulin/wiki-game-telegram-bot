@@ -27,7 +27,7 @@ class Cache:
         """
         for i in range(len(path) - 1):
             self.cursor.execute(
-                f"INSERT INTO cache VALUES(?, ?)",
+                "INSERT INTO cache VALUES(?, ?)",
                 (
                     path[i],
                     path[i + 1],
