@@ -33,7 +33,9 @@ def get_all_links(url: str) -> List[str]:
         href = str(tag.get("href"))
 
         # get rid of non-relevant links
-        if ":" not in href and href.startswith("/wiki/") and not url.endswith(href):
+        correct_start = href.startswith("/wiki/")
+        correct_end = not url.endswith(href)
+        if ":" not in href and correct_start and correct_end:
             ans.add(href)
 
     return ["https://en.wikipedia.org" + partial for partial in ans]
