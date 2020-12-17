@@ -13,13 +13,13 @@ bot_dispatcher = Dispatcher(bot)
 
 
 @bot_dispatcher.message_handler(commands=["start", "help"])
-async def welcome_handler(message: types.Message):
+async def welcome_handler(message: types.Message) -> None:
     """Sends welcome message on /start command"""
     await message.reply(config.WELCOME_MESSAGE)
 
 
 @bot_dispatcher.message_handler()
-async def search_handler(message: types.Message):
+async def search_handler(message: types.Message) -> None:
     """
     Checks if sent message is an English Wikipedia article and sends the result back.
     """
