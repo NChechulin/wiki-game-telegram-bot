@@ -10,9 +10,9 @@ from typing import List
 cache = Cache()
 
 
-def pretty_print_answer(end: Node, is_final=True) -> str:
+def pretty_print_answer(end: Node, is_final: bool = True) -> str:
     """
-    Returns a pretty string, which represents a path from start node to end node
+    Returns a pretty string which represents a path from start node to end node
     """
     chain = get_node_chain(end)
 
@@ -39,7 +39,9 @@ def get_node_chain(end: Node) -> List[str]:
 
 def search(start_url: str) -> str:
     """
-    Searches for a path to end article. Returns pretty printed path, if a solution is found. Else returns Nothing found
+    Searches for a path to end article.
+    Returns pretty printed path, if a solution is found.
+    Else returns string 'Nothing found'
     """
     TARGET_TITLE = "Adolf Hitler"
 
