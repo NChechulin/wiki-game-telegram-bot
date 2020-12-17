@@ -3,18 +3,18 @@ Main bot file
 """
 
 
-import config
-from core import search
 from aiogram import Bot, Dispatcher, executor, types
+from core import search
+import config
 from urllib.parse import urlparse
 
 bot = Bot(token=config.BOT_TOKEN)
 bot_dispatcher = Dispatcher(bot)
 
 
-@bot_dispatcher.message_handler(commands=['start', 'help'])
+@bot_dispatcher.message_handler(commands=["start", "help"])
 async def welcome_handler(message: types.Message):
-    '''Sends welcome message on /start command'''
+    """Sends welcome message on /start command"""
     await message.reply(config.WELCOME_MESSAGE)
 
 
@@ -25,7 +25,7 @@ async def search_handler(message: types.Message):
     """
     try:
         url = urlparse(message.text)
-        if url.netloc == 'en.wikipedia.org' and url.path != '':
+        if url.netloc == "en.wikipedia.org" and url.path != "":
             await message.reply(search.search(message.text))
         else:
             await message.reply(config.WRONG_URL_MESSAGE)
