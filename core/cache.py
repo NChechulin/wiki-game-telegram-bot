@@ -3,7 +3,6 @@ Cache class for operations with DB
 """
 
 
-from core.node import Node
 import sqlite3
 from typing import List
 
@@ -50,7 +49,8 @@ class Cache:
         """
         Returns next step of path from DB
         """
-        self.cursor.execute("SELECT next FROM cache WHERE current = ?", (current,))
+        query = "SELECT next FROM cache WHERE current = ?"
+        self.cursor.execute(query, (current,))
         res = self.cursor.fetchone()
         return res[0]
 
