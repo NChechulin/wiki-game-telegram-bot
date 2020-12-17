@@ -29,7 +29,7 @@ async def search_handler(message: types.Message) -> None:
             await message.reply(search.search(message.text))
         else:
             await message.reply(config.WRONG_URL_MESSAGE)
-    except:
+    except Exception:
         await message.reply(config.ERROR_MESSAGE)
 
 
