@@ -20,8 +20,8 @@ def get_html_tree(html_code: str) -> html.HtmlElement:
 
 def get_title(url: str) -> str:
     """Returns title of the page by it's URL"""
-    dirty = url.split('/')[-1]
-    return dirty.replace('_', ' ')
+    dirty = url.split("/")[-1]
+    return dirty.replace("_", " ")
 
 
 def get_all_links(url: str) -> List[str]:
@@ -29,11 +29,11 @@ def get_all_links(url: str) -> List[str]:
     ans = set()
     tree = get_html_tree(get_html(url))
 
-    for tag in tree.xpath('//a'):
-        href = str(tag.get('href'))
+    for tag in tree.xpath("//a"):
+        href = str(tag.get("href"))
 
         # get rid of non-relevant links
-        if ':' not in href and href.startswith('/wiki/') and not url.endswith(href):
+        if ":" not in href and href.startswith("/wiki/") and not url.endswith(href):
             ans.add(href)
 
-    return ['https://en.wikipedia.org' + partial for partial in ans]
+    return ["https://en.wikipedia.org" + partial for partial in ans]

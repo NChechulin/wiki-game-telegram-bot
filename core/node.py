@@ -14,10 +14,10 @@ class Node:
 
     title: str
     url: str
-    parent: 'Node' = None
-    children: List['Node'] = None
+    parent: "Node" = None
+    children: List["Node"] = None
 
-    def __init__(self, url: str, parent: 'Node'):
+    def __init__(self, url: str, parent: "Node"):
         self.url = url
         self.parent = parent
         self.children = []
@@ -32,7 +32,7 @@ class Node:
         for url in urls:
             self.children.append(Node(url, self))
 
-    def try_find_answer(self, target_answer: str) -> 'Node':
+    def try_find_answer(self, target_answer: str) -> "Node":
         """
         Looks if one of the children is a final point. Returns it if yes, else None
         """

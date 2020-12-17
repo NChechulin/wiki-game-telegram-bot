@@ -13,7 +13,7 @@ class Cache:
     Cache class for operations with DB
     """
 
-    DB_FILE = 'cache.db'
+    DB_FILE = "cache.db"
     cursor = None
     conn = None
 
@@ -60,8 +60,8 @@ class Cache:
         """
         ans = []
         cur, nxt = title, self.__get_next(title)
-        while nxt != 'Adolf Hitler':
+        while nxt != "Adolf Hitler":
             cur, nxt = nxt, self.__get_next(nxt)
             ans.append(cur)
-        ans.append('Adolf Hitler')
+        ans.append("Adolf Hitler")
         return ans

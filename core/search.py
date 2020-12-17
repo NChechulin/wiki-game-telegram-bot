@@ -19,7 +19,7 @@ def pretty_print_answer(end: Node, is_final=True) -> str:
     if not is_final:
         chain += cache.get(end.title)
 
-    return ' -> '.join(chain)
+    return " -> ".join(chain)
 
 
 def get_node_chain(end: Node) -> List[str]:
@@ -41,7 +41,7 @@ def search(start_url: str) -> str:
     """
     Searches for a path to end article. Returns pretty printed path, if a solution is found. Else returns Nothing found
     """
-    TARGET_TITLE = 'Adolf Hitler'
+    TARGET_TITLE = "Adolf Hitler"
 
     start_node = Node(start_url, None)
 
@@ -75,4 +75,4 @@ def search(start_url: str) -> str:
 
         edge = new_edge - seen
 
-    return 'Nothing found'
+    return "Nothing found"
