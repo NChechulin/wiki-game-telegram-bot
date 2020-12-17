@@ -21,7 +21,7 @@ async def welcome_handler(message: types.Message) -> None:
 @bot_dispatcher.message_handler()
 async def search_handler(message: types.Message) -> None:
     """
-    Checks if sent message is an English Wikipedia article and sends the result back.
+    Checks if sent message is a EN Wiki article and sends the result back.
     """
     try:
         url = urlparse(message.text)
