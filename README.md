@@ -1,4 +1,4 @@
-# Everything leads to Hitler
+# Wiki Game telegram bot
 
 ## About
 
