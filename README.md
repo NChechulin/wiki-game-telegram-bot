@@ -29,6 +29,6 @@ Also sometimes the text of the link and the title of the article, to which it le
 1. Clone the repo: `git clone https://github.com/NChechulin/everything-leads-to-hitler.git`
 2. Install requirements: `pip install -r requirements.txt`
 3. [Register a new bot](https://core.telegram.org/bots#3-how-do-i-create-a-bot)
-4. Insert a token of your bot in `config.py`
+4. Insert a token of your bot in `config.json`
 5. Create a `cache.db` sqlite3 database. It has to contain table `cache` with 2 text fields: `current` and `next`
 6. Run `python3 bot.py` to start the bot. You may also change the messages, which bot sends.
