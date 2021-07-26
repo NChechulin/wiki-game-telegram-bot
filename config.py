@@ -1,6 +1,0 @@
-BOT_TOKEN = ""
-
-# Standart messages
-WELCOME_MESSAGE = "Send me a link to an English Wikipedia article and I`ll try to find the path to Adolf Hitler article. This may take several minutes :("
-WRONG_URL_MESSAGE = "You specified wrong url.\nExample of correct URL: https://en.wikipedia.org/wiki/German_language"
-ERROR_MESSAGE = "Something went wrong. Contact dev: @nchechulin"
