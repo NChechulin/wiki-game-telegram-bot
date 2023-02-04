@@ -1,2 +1,2 @@
 lxml==4.9.2
-aiogram==2.24
+aiogram==2.25
